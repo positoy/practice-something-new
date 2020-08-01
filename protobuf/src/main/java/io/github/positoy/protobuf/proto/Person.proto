@@ -1,0 +1,32 @@
+syntax = "proto3";
+package io.github.positoy.protobuf;
+
+option java_package = "io.github.positoy.protobuf.proto";
+option java_outer_classname = "PersonProto";
+
+message Person {
+    int32 id = 1;
+    string name = 2;
+    string email = 3;
+
+    enum JobType {
+        Student = 0;
+        Developer = 1;
+        Professor = 2;
+        StockBroker = 3;
+    }
+    JobType job = 4;
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+
+    message PhoneNumber {
+        PhoneType type = 1;
+        string number = 2;
+    }
+
+    PhoneNumber phones = 5;
+}
